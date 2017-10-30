@@ -1,0 +1,1019 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>saizeriya-menu</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/wy.css" />
+		<link rel="stylesheet" type="text/css" href="css/menus.css" />
+
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height: 585px;
+			} 
+			
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+			
+			#popover {
+				height: 300px;
+				width: 275px;
+			}
+		</style>
+		<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/lianjie.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/tianjia.js"></script>
+		<script>
+			window.onload = function() {
+				mui('.mui-scroll-wrapper').scroll({
+					deceleration: 0.005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+				});
+
+			}
+			mui.init({
+				swipeBack: false
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-col-xs-12 xiangqing" id="xiangqing" style="width: 100%;position: fixed; background-color: white;z-index: 100;opacity:0.9;">
+			<table border="0" width="375" align="center">
+				<tr>
+					<th style="color: #E96B3D;" colspan="4">Steak</th>
+				</tr>
+				<tr>
+					<td class="wzleft" colspan="4">
+						<img src="img/steak1.jpg" width="100%" height="200px" />
+					</td>
+				</tr>
+				<tr>
+					<td class="wzleft" colspan="4">Taste</td>
+				</tr>
+				<tr>
+					<td class="wzleft">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>三分熟</label>
+							<input name="steak" type="radio" value="three">
+
+						</div>
+					</td>
+					<td class="wzleft">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>五分熟</label>
+							<input name="steak" type="radio" value="five">
+						</div>
+					</td>
+
+				</tr>
+				<tr>
+					<td class="wzleft">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>七分熟</label>
+							<input name="steak" type="radio" value="seven">
+						</div>
+					</td>
+					<td class="wzleft">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>全熟</label>
+							<input name="steak" type="radio" value="all">
+						</div>
+					</td>
+
+				</tr>
+				<tr>
+					<td class="wzleft" colspan="4">酱汁</td>
+				</tr>
+				<tr>
+					<td class="wzleft">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>黑椒</label>
+							<input name="jiangzhi" type="radio" value="three">
+
+						</div>
+					</td>
+					<td class="wzleft">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>番茄</label>
+							<input name="酱汁" type="radio" value="five">
+						</div>
+					</td>
+
+				</tr>
+			</table>
+			<div align="center" style="margin-top: 200px;">
+				<button id="guanbi" type="button" class="yuan tianjia toastBtn">确&nbsp;定</button>
+			</div>
+		</div>
+
+		<div class="mui-col-xs-12 xiangqing" id="xiangqing1" style="width: 100%;position: fixed; background-color: white;z-index: 100;opacity:0.9;">
+			<table border="0" width="375" align="center">
+				<tr>
+					<th style="color: #E96B3D;" colspan="4">Pizza</th>
+				</tr>
+				<tr>
+					<td class="wzleft" colspan="4">
+						<img src="img/pizza1.jpg" width="100%" height="200px" />
+					</td>
+				</tr>
+				<tr>
+					<td class="wzleft" colspan="4">Size</td>
+				</tr>
+				<tr>
+					<td class="wzleft">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>6寸</label>
+							<input name="pizza" type="radio" value="6">
+
+						</div>
+					</td>
+					<td class="wzleft">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>8寸</label>
+							<input name="pizza" type="radio" value="8">
+						</div>
+					</td>
+
+				</tr>
+				<tr>
+					<td class="wzleft">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>10寸</label>
+							<input name="pizza" type="radio" value="10">
+						</div>
+					</td>
+					<td class="wzleft">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>12寸</label>
+							<input name="pizza" type="radio" value="12">
+						</div>
+					</td>
+
+				</tr>
+
+			</table>
+			<div align="center" style="margin-top: 200px;">
+				<button id="guanbi1" type="button" class="yuan tianjia toastBtn">确&nbsp;定</button>
+			</div>
+		</div>
+
+		<div class="mui-col-xs-12 xiangqing" id="xiangqing2" style="width: 100%;position: fixed; background-color: white;z-index: 100;opacity:0.9;">
+			<table border="0" width="375" align="center">
+				<tr>
+					<th style="color: #E96B3D;" colspan="4">Pizza</th>
+				</tr>
+				<tr>
+					<td class="wzleft" colspan="4">
+						<img src="img/drink1.jpeg" width="100%" height="200px" />
+					</td>
+				</tr>
+				<tr>
+					<td class="wzleft" colspan="4">ICE&HOT</td>
+				</tr>
+				<tr>
+					<td class="wzleft">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>冷</label>
+							<input name="drink" type="radio" value="ice">
+
+						</div>
+					</td>
+					<td class="wzleft">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>热</label>
+							<input name="drink" type="radio" value="hot">
+						</div>
+					</td>
+
+				</tr>
+
+			</table>
+			<div align="center" style="margin-top: 200px;">
+				<button id="guanbi2" type="button" class="yuan tianjia toastBtn">确&nbsp;定</button>
+			</div>
+		</div>
+		<header class="mui-bar mui-bar-nav bgs">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">在线点餐</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab bgs">
+			<a class="mui-tab-item" href="index.html">
+				<button class="car" id="p1" style="padding: 0;top: 0;border: none;">
+									        <img src="img/car.svg"/>  
+									        <div class="mui-content-padded biao">
+	<span class="mui-badge mui-badge-danger" id="tianjia"></span>
+</div>
+									          </button>
+
+			</a>
+			<a class="mui-tab-item  mui-active" id="menuTJ">
+				<button class="mui-btn mui-btn-danger mui-btn-outlined button3" id="p1" style="padding: 0;top: 0;">
+									           <span>提&nbsp;交</span>   
+									          </button>
+			</a>
+			 		 <script type="text/javascript">
+    	document.getElementById('menuTJ').addEventListener('tap', function() {
+    		var x1=document.getElementById("tianjia").innerText; 
+  alert("您一共点了"+x1+"道菜");
+$("#tianjia").click(function(){
+	alert($(this).val());
+});
+    	});
+    </script>  
+
+		</nav>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll">
+						<a class="mui-control-item mui-active" href="#item1mobile">
+							<img src="img/fire.svg" height="20px" width="20px" />推荐
+
+						</a>
+						<a class="mui-control-item" href="#item2mobile">
+							特色牛排
+						</a>
+						<a class="mui-control-item" href="#item3mobile">
+							Pizza
+						</a>
+
+						<a class="mui-control-item" href="#item4mobile">
+							意大利面
+						</a>
+
+						<a class="mui-control-item" href="#item6mobile">
+							沙拉
+						</a>
+						<a class="mui-control-item" href="#item7mobile">
+							甜点
+						</a>
+						<a class="mui-control-item" href="#item8mobile">
+							饮品
+						</a>
+					</div>
+				</div>
+				<!--				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>-->
+
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view menu2">
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/Top1.jpg">
+											<div class="mui-media-body">
+												<font size="4" id="caiming1">墨西哥鸡肉卷</font>
+												<p class="mui-ellipsis">墨西哥风味</p>
+												<p class="price">¥25</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" value=""/>
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button" value="墨西哥鸡肉卷" id="top1">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/Top2.jpg">
+											<div class="mui-media-body">
+												<font size="4">牛奶布丁</font>
+												<p class="mui-ellipsis">Q弹可口</p>
+												<p class="price">¥19</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" value="牛奶布丁" type="button">+</button>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/cai1.jpg">
+											<div class="mui-media-body">
+												<font size="4" >金枪鱼沙拉</font>
+												<p class="mui-ellipsis">新鲜金枪鱼搭配沙拉酱</p>
+												<p class="price">¥35</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/cai3.jpg">
+											<div class="mui-media-body">
+												<font size="4">奶酪意大利面</font>
+												<p class="mui-ellipsis">意式的经典搭配</p>
+												<p class="price">¥28</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/cai2.jpg">
+											<div class="mui-media-body">
+												<font size="4">培根披萨</font>
+												<p class="mui-ellipsis">香酥薄饼搭上厚厚培根</p>
+												<p class="price">¥35</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+
+											</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/cai4.jpg">
+											<div class="mui-media-body">
+												<font size="4">芝士焗饭</font>
+												<p class="mui-ellipsis">喷香芝士搭配海鲜</p>
+												<p class="price">¥29</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/cai5.jpg">
+											<div class="mui-media-body">
+												<font size="4">烤牛排</font>
+												<p class="mui-ellipsis">口感可口</p>
+												<p class="price">¥49</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/top4.png">
+											<div class="mui-media-body">
+												<font size="4">土豆芝士披萨</font>
+												<p class="mui-ellipsis">喷香芝士搭配土豆</p>
+												<p class="price">¥49</p>
+											<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/top5.jpg">
+											<div class="mui-media-body">
+												<font size="4">苹果派</font>
+												<p class="mui-ellipsis">浓郁香气</p>
+												<p class="price">¥39</p>
+											<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/top6.jpg">
+											<div class="mui-media-body">
+												<font size="4">炸鱼薯条</font>
+												<p class="mui-ellipsis">香酥可口</p>
+												<p class="price">¥35</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+									</li>
+
+								</ul>
+
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view menu2">
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/steak1.jpg">
+											<div class="mui-media-body">
+												<font size="4">菲力牛排（FILLET）</font>
+												<p class="mui-ellipsis">经典嫩滑</p>
+												<p class="price">¥39</p>
+												<button class="mui-btn mui-btn-danger mui-btn-outlined button1" id="dengjikou2" style="padding: 0;">
+									              选规格
+									          </button>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/steak2.png">
+											<div class="mui-media-body">
+												<font size="4">西冷牛排（SIRLOIN）</font>
+												<p class="mui-ellipsis">肉质鲜嫩且香甜多汁</p>
+												<p class="price">¥45</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/steak3.jpeg">
+											<div class="mui-media-body">
+												<font size="4">肋眼牛排(RIBEYE)</font>
+												<p class="mui-ellipsis">油油嫩嫩的肉丝中夹着Q而有劲的油筋</p>
+												<p class="price">¥39</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/steak4.jpg">
+											<div class="mui-media-body">
+												<font size="4">牛小排</font>
+												<p class="mui-ellipsis">嫩而不涩，肉量丰郁的全熟肉质</p>
+												<p class="price">¥35</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/banner1.jpg">
+											<div class="mui-media-body">
+												<font size="4">丁骨牛排(TBONE)</font>
+												<p class="mui-ellipsis">肉质一细嫩一粗犷</p>
+												<p class="price">¥49</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view menu2">
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/pizza1.jpg">
+											<div class="mui-media-body">
+												<font size="4">至尊披萨</font>
+												<p class="mui-ellipsis">意式的经典搭Pizza</p>
+												<p class="price">¥20起</p>
+												<button class="mui-btn mui-btn-danger mui-btn-outlined button1" id="dengjikou3" style="padding: 0;">
+									              选规格
+									          </button>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/banner2.jpg">
+											<div class="mui-media-body">
+												<font size="4">芝士培根披萨</font>
+												<p class="mui-ellipsis">厚厚的培根，浇上浓浓的芝士</p>
+												<p class="price">¥18起</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/pizza2.jpeg">
+											<div class="mui-media-body">
+												<font size="4">火腿蔓越莓披萨</font>
+												<p class="mui-ellipsis">火腿&蔓越莓</p>
+												<p class="price">¥16起</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/pizza3.jpeg">
+											<div class="mui-media-body">
+												<font size="4">番茄披萨</font>
+												<p class="mui-ellipsis">喷香番茄</p>
+												<p class="price">¥12起</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/pizza4.jpeg ">
+											<div class="mui-media-body">
+												<font size="4">至尊海鲜披萨</font>
+												<p class="mui-ellipsis">美味海鲜搭配浓浓芝士</p>
+												<p class="price">¥24起</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item4mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll4" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view menu2">
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/caidan_2.png">
+											<div class="mui-media-body">
+												<font size="4">蜜汁鸡丝意面</font>
+												<p class="mui-ellipsis">蜜汁鸡丝</p>
+												<p class="price">¥12</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/mian2.jpg">
+											<div class="mui-media-body">
+												<font size="4">肉酱意面</font>
+												<p class="mui-ellipsis">秘制肉酱</p>
+												<p class="price">¥14</p>
+											<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/mian3.jpeg">
+											<div class="mui-media-body">
+												<font size="4">培根意面</font>
+												<p class="mui-ellipsis">挑战你的味蕾</p>
+												<p class="price">¥14</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div id="item6mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll6" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view menu2">
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/sala1.jpeg">
+											<div class="mui-media-body">
+												<font size="4">蔬菜沙拉</font>
+												<p class="mui-ellipsis">多款蔬菜</p>
+												<p class="price">¥8</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/caidan_4.png">
+											<div class="mui-media-body">
+												<font size="4">樱桃沙拉</font>
+												<p class="mui-ellipsis">特级樱桃</p>
+												<p class="price">¥10</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/sala3.jpeg">
+											<div class="mui-media-body">
+												<font size="4">三文鱼沙拉</font>
+												<p class="mui-ellipsis">三文鱼&有机蔬菜</p>
+												<p class="price">¥12</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/sala5.jpeg">
+											<div class="mui-media-body">
+												<font size="4">海鲜沙拉</font>
+												<p class="mui-ellipsis">现货大虾</p>
+												<p class="price">¥15</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item7mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll7" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view menu2">
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/dian1.jpeg">
+											<div class="mui-media-body">
+												<font size="4">卡布奇诺慕斯</font>
+												<p class="mui-ellipsis">意式的经典卡布奇诺</p>
+												<p class="price">¥10</p>
+											<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/dian2.jpeg">
+											<div class="mui-media-body">
+												<font size="4">招牌甜甜圈</font>
+												<p class="mui-ellipsis">多重口味</p>
+												<p class="price">¥3/个</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/dian3.jpeg">
+											<div class="mui-media-body">
+												<font size="4">蔓越莓</font>
+												<p class="mui-ellipsis">新鲜蔓越莓</p>
+												<p class="price">¥10</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/dian4.jpeg">
+											<div class="mui-media-body">
+												<font size="4">树莓</font>
+												<p class="mui-ellipsis">多种树莓组合</p>
+												<p class="price">¥10</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/dian6.jpeg">
+											<div class="mui-media-body">
+												<font size="4">马卡龙</font>
+												<p class="mui-ellipsis">意式经典</p>
+												<p class="price">¥3/个</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/dian7.jpeg">
+											<div class="mui-media-body">
+												<font size="4">卡布恋人</font>
+												<p class="mui-ellipsis">美味卡布基诺加上创意</p>
+												<p class="price">¥12</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item8mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll8" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view menu2">
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/drink1.jpeg">
+											<div class="mui-media-body">
+												<font size="4">热情</font>
+												<p class="mui-ellipsis">蔓越莓</p>
+												<p class="price">¥10</p>
+												<button class="mui-btn mui-btn-danger mui-btn-outlined button1" id="dengjikou7" style="padding: 0;">
+									             选规格
+									          </button>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/drink2.jpeg">
+											<div class="mui-media-body">
+												<font size="4">冷酷</font>
+												<p class="mui-ellipsis">黑莓</p>
+												<p class="price">¥10</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/drink3.jpeg">
+											<div class="mui-media-body">
+												<font size="4">透明</font>
+												<p class="mui-ellipsis">青柠</p>
+												<p class="price">¥10</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/drink4.jpeg">
+											<div class="mui-media-body">
+												<font size="4">蓝色妖姬</font>
+												<p class="mui-ellipsis">鸡尾酒</p>
+												<p class="price">¥10</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/drink7.png">
+											<div class="mui-media-body">
+												<font size="4">法国红酒</font>
+												<p class="mui-ellipsis">新鲜酿制</p>
+												<p class="price">¥80</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+									<li class="mui-table-view-cell mui-media">
+										<a href="#">
+											<img class="mui-media-object mui-pull-left" src="img/drink8.jpeg">
+											<div class="mui-media-body">
+												<font size="4">意式红酒</font>
+												<p class="mui-ellipsis">意式的经典</p>
+												<p class="price">¥80</p>
+												<div class="mui-numbox anniu" data-numbox-min="0">
+													<!-- "-"按钮，点击可减小当前数值 -->
+													<button class="mui-btn mui-numbox-btn-minus delete" type="button">-</button>
+													<input class="mui-numbox-input" type="number" id="num" />
+													<!-- "+"按钮，点击可增大当前数值 -->
+													<button class="mui-btn mui-numbox-btn-plus tianjia" type="button">+</button>
+												</div>
+											</div>
+										</a>
+
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

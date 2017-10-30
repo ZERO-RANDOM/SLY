@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" class="feedback">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>导读</title>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.dh-bj{
+				background-color:#876046;
+				color: white;
+			}
+            .imageup{ position: absolute; margin:auto;left:0px;top:50px;right:0;bottom:0; width:100px; height: 36px; line-height:36px; color: #000; border-radius: 5px; border:1px #ddd solid; text-align:center;font-size:20px;;}  
+			
+
+        </style>  
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav dh-bj" >
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"  style="color: white" href="takeread.html"></a>
+			<h1 class="mui-title" style="color: white; font-family: '微软雅黑'; font-size: 15px;">写点评</h1>
+			<a id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right" style="color: white; font-family: '微软雅黑'; font-size: 15px;">发表</a>
+		</header>
+		<div class="mui-content" >
+			<div class="mui-content-padded">
+				<div class="mui-inline">编辑内容</div>
+			</div>
+			<div class="row mui-input-row">
+				<textarea id='question' class="mui-input-clear question" placeholder="请详细描述你的心得...（100字以内）"></textarea>
+			</div>
+			<p>图片(选填,提供问题截图,总大小10M以下)</p>
+			<div id='image-list' class="row image-list">
+				<div class="image-item space">
+					<div class="image-close">X</div>
+					<!--<div class="image-up"></div>-->
+					<div class="file" id="image-1"></div>
+				</div>
+			</div>
+			<a href="javascript:void(0);" class="imageup">上传图片</a>  
+        <script>  
+            function plusReady(){  
+                // 弹出系统选择按钮框  
+                mui("body").on("tap",".imageup",function(){  
+                    page.imgUp();  
+                })  
+                  
+            }  
+               
+            var page=null;  
+            page={  
+                imgUp:function(){  
+                    var m=this;  
+                    plus.nativeUI.actionSheet({cancel:"取消",buttons:[  
+                        {title:"拍照"},  
+                        {title:"从相册中选择"}  
+                    ]}, function(e){//1 是拍照  2 从相册中选择  
+                        switch(e.index){  
+                            case 1:clickCamera();break;  
+                            case 2:clickGallery();break;  
+                        }  
+                    });  
+                }  
+                //摄像头  
+            }  
+              
+              
+     //发送照片  
+      
+    function clickGallery() {  
+        plus.gallery.pick(function(path) {  
+            plus.zip.compressImage({  
+                src: path,  
+                dst: "_doc/chat/gallery/" + path,  
+                quality: 20,  
+                overwrite: true  
+            }, function(e) {  
+                var task = plus.uploader.createUpload(server + "upload/chat", {  
+                    method: "post"  
+                }, function(t, sta) {  
+                    console.log(JSON.stringify(t))  
+                    if(sta == 200) {  
+                        var msg = t.responseText;  
+                        var oImg = JSON.parse(msg);  
+                        var imgUrl = oImg.urls;  
+                        var re = new RegExp("\\\\", "g");  
+                        imgUrl = imgUrl.replace(re, "/");  
+                        uploadMsg(2, imgUrl);  
+                    }  
+                });  
+                task.addFile(e.target, {});  
+                task.start();  
+            }, function(err) {  
+                console.error("压缩失败：" + err.message);  
+            });  
+  
+        }, function(err) {});  
+    };  
+      
+      
+    // 拍照  
+      
+    function clickCamera() {  
+        var cmr = plus.camera.getCamera();  
+        var res = cmr.supportedImageResolutions[0];  
+        var fmt = cmr.supportedImageFormats[0];  
+        cmr.captureImage(function(path) {  
+            //plus.io.resolveLocalFileSystemURL(path, function(entry) {  
+            plus.io.resolveLocalFileSystemURL(path, function(entry) {  
+                var localUrl = entry.toLocalURL();  
+                plus.zip.compressImage({  
+                    src: localUrl,  
+                    dst: "_doc/chat/camera/" + localUrl,  
+                    quality: 20,  
+                    overwrite: true  
+                }, function(e) {  
+                    var task = plus.uploader.createUpload(server + "upload/chat", {  
+                        method: "post"  
+                    }, function(t, sta) {  
+                        if(sta == 200) {  
+                            var msg = t.responseText;  
+                            var oImg = JSON.parse(msg);  
+                            var imgUrl = oImg.urls;  
+                            var re = new RegExp("\\\\", "g");  
+                            imgUrl = imgUrl.replace(re, "/");  
+                            console.log(imgUrl);  
+                            uploadMsg(2, imgUrl);  
+                        }  
+                    });  
+                    task.addFile(e.target, {});  
+                    task.start();  
+                }, function(err) {  
+                    console.log("压缩失败：  " + err.message);  
+                });  
+            });  
+        }, function(err) {  
+            console.error("拍照失败：" + err.message);  
+        }, {  
+            index: 1  
+        });  
+    };  
+  
+  
+              
+              
+            if(window.plus){  
+                plusReady();  
+            }else{  
+                document.addEventListener("plusready",plusReady,false);  
+            }  
+              
+        </script>  
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src=" js/feedback.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui('.mui-scroll-wrapper').scroll();
+		</script>
+	</body>
+
+</html>

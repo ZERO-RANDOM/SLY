@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="36px" height="36px" viewBox="0 0 36 36" enable-background="new 0 0 36 36" xml:space="preserve">
+<path fill="#D3B007" d="M5.543,3.389v29.727h23.303V3.389H5.543z M27.914,32.18H6.475V4.326h21.439V32.18L27.914,32.18z"/>
+<g>
+	<rect x="7.221" y="5.152" fill="#D3B007" width="20.029" height="9.385"/>
+	<rect x="7.221" y="15.546" fill="#D3B007" width="20.029" height="15.808"/>
+</g>
+<text transform="matrix(1 0 0 1 7.8945 11.7666)" fill="#F9F7ED" font-family="'Corbel-Bold'" font-size="6.6207">MENU</text>
+<ellipse fill="#F9F7ED" cx="12.31" cy="21.592" rx="3.023" ry="3.905"/>
+<path fill="#F9F7ED" d="M20.146,17.937v4.597h-0.645v-4.597H18.91v4.597h-0.643v-4.597h-0.65v4.597h-0.644v-4.597h-0.552v5.885
+	c0,1.169,0.947,2.115,2.114,2.115c1.17,0,2.115-0.946,2.115-2.115v-5.885H20.146z"/>
+<rect x="11.617" y="25.119" fill="#F9F7ED" width="1.386" height="6.059"/>
+<rect x="17.8" y="25.385" fill="#F9F7ED" width="1.473" height="5.885"/>
+<path fill="#F9F7ED" d="M25.02,31.178V17.477c-1.193,0-2.162,3.211-2.162,7.172c0,2.906,0.521,5.402,1.27,6.529H25.02z"/>
+</svg>

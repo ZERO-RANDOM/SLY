@@ -1,0 +1,46 @@
+p,span,h1{
+	font-family: "微软雅黑";
+}
+.jianjie{
+	background-color: #FFFFFF;
+}
+.mui-card img{
+	width: 25px;
+	height: 25px;
+}
+.mui-card span{
+	font-size: 20px;
+}
+.mui-content{
+	background-color: #FFFFFF;
+}
+.remen p{
+	color: #000000;
+	font-size: 18px;
+	text-align: center;
+}
+.remen p img{
+	width: 25px;
+}
+#qianggou{
+	margin-top: 5px;
+	background-color: #ff6666;
+	border: 0px;
+}
+#jiage{
+	color: #ACACB4;
+	font-size: 12px;
+	line-height: 20px;
+}
+#caiming{
+	color: white;
+}
+.mui-bar{
+	background-color: #876046;
+}
+.mui-action-back{
+	color: #FFFFFF;
+}
+.mui-title{
+	color: #FFFFFF;
+}

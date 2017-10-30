@@ -1,0 +1,54 @@
+.bgs{
+	background-image: linear-gradient(to left, #876046 0%, #876046 100%);
+	border: none;
+}
+.bg{
+	background-image:linear-gradient(to left, #ffffff 0%, #876046 60%);
+}
+.mui-table-view .mui-grid-view .mui-table-view-cell .mui-media-body{
+	color: #ff9900;
+}
+.bgs h1{
+	color: white;
+	font-size: 18px;
+}
+.bgs a{
+	color: white;
+}
+.mui-bar-tab .mui-tab-item.mui-active {
+	color: white
+}
+
+.banners p{
+	color: #ff9900;
+	font-size: 16px;
+}
+.banners img{
+	width: 100%;
+	height: 100%;
+}
+.centers{
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	z-index: 3;
+}
+.centers p{
+	font-size: 28px;	
+	color: #ff9900;
+	font-family: 'verdana';
+	background-image: linear-gradient(to left, #876046 0%, #876046 100%);
+}
+.centers button{
+	margin-top: 15%;
+	height: 70px;
+	width:50% ;
+	border-radius:20px ;
+    border: 1px solid #FF9900;
+    font-size: 22px;
+
+}
+
+.mui-active span{
+	color: white;
+}

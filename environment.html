@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>saizeriya-rrestaurant</title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/wy.css" />
+		<link rel="stylesheet" type="text/css" href="css/environment.css" />
+		<style type="text/css">
+			.mui-slider-img-content {
+				position: absolute;
+				bottom: 10px;
+				left: 10px;
+				right: 10px;
+				color: white;
+				text-align: center;
+				line-height: 21px
+			}
+		</style>
+		<script type="text/javascript" charset="utf-8">
+			window.onload = function() {
+				mui('.mui-scroll-wrapper').scroll({
+					deceleration: 0.005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+				});
+
+			}
+		</script>
+	</head>
+
+	<body>
+		<!-- 主界面菜单同时移动 -->
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable">
+			<!-- 主页面容器 -->
+			<div class="mui-inner-wrap bgs">
+				<!-- 菜单容器 -->
+
+				<!-- 主页面标题 -->
+				<header class="mui-bar mui-bar-nav bgs">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+					<h1 class="mui-title">餐厅环境</h1>
+				</header>
+
+				<!-- 主页面内容容器 -->
+				<div class="mui-content centers bgs">
+					<img src="img/biaoti.jpg" />
+				</div>
+				<div class="mui-content mui-scroll-wrapper bgs wy1">
+					<div class="mui-scroll">
+						<!-- 主界面具体展示内容 -->
+
+						<div class="mui-content bgs">
+							<div class="mui-content-padded mui-row">
+								<div class="mui-col-xs-6">
+									<p style="">
+										<img src="img/restaurant1.jpg" data-preview-src="" data-preview-group="1" />
+										<span>
+											<img src="img/dingwei.svg" class="add"/>
+										   萨莉亚(万达广场河东店)
+										</span>
+									</p>
+									<p>
+										<img src="img/restaurant2.jpg" data-preview-src="" data-preview-group="1" />
+										<span>
+											<img src="img/dingwei.svg" class="add"/>
+										   萨莉亚(熙悦汇广场店)
+										</span>
+									</p>
+									<p>
+										<img src="img/restaurant3.jpeg" data-preview-src="" data-preview-group="1" />
+										<span>
+											<img src="img/dingwei.svg" class="add"/>
+										  萨莉亚(塘沽店)
+										</span>
+									</p>
+									<p>
+										<img src="img/restaurant4.jpeg" data-preview-src="" data-preview-group="1" />
+										<span>
+											<img src="img/dingwei.svg" class="add"/>
+										   萨莉亚(鹏欣水游城店)
+										</span>
+									</p>
+								</div>
+								<div class="mui-col-xs-6" >
+									<p>
+										<img src="img/restaurant5.jpeg" data-preview-src="" data-preview-group="1" />
+										<span>
+											<img src="img/dingwei.svg" class="add"/>
+										   萨莉亚(一纬路店)
+										</span>
+									</p>
+									<p>
+										<img src="img/restaurant6.jpg" data-preview-src="" data-preview-group="1" />
+										<span>
+											<img src="img/dingwei.svg" class="add"/>
+										  萨莉亚(天邦店)
+										</span>
+									</p>
+									<p>
+										<img src="img/restaurant7.jpg" data-preview-src="" data-preview-group="1" />
+										<span>
+											<img src="img/dingwei.svg" class="add"/>
+										  萨莉亚(大悦城店)
+										</span>
+									</p>
+									<p>
+										<img src="img/restaurant8.jpg" data-preview-src="" data-preview-group="1" />
+										<span>
+											<img src="img/dingwei.svg" class="add"/>
+										  萨莉亚(远洋未来广场店)
+										</span>
+									</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script src="js/mui.zoom.js"></script>
+	<script src="js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

@@ -1,0 +1,359 @@
+ <!doctype html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<script src="./js/vue.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/global.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="appointall" class="appoint">
+			<header class="mui-bar mui-bar-nav app-top">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title" style="color: #876046;">预定餐位</h1>
+			</header>
+			 <nav class="mui-bar mui-bar-tab caidandibu">
+			  <button class="mui-btn  mui-btn-block tijiao" id="appoint" name="appoint" onclick="tabOrder()">提交预定</button>
+	    		</nav> 
+			<div class="mui-content">
+				<div class="appoint-topimg">
+					<div class="topimg-bg"><img src="img/yudingcanwei.jpg"/></div>
+				</div>
+				
+				<div class="mui-input-group appoint-list" method="post" action="#">
+			         <ul class="mui-table-view listBG">
+				         <li class="mui-table-view-cell">
+				            <a class="mui-navigate-right">
+				                <span class="applist-row"><img src="iconn/time7.svg"/>用餐时间</span>
+				                <input type="text" id="app-date"
+				                	data-options='{"type":"date","beginYear":2017,"endYear":2017,"type":"hour","customData":{"h":[{"text":"上午","value":"上午"},{"text":"下午","value":"下午"},{"text":"晚上","value":"晚上"}]},"labels":["年", "月", "日", "时段", "分"]}'
+				                	 value="" class="mui-btn app-date">
+				                </input>
+				            </a>  
+				        </li>
+				        </ul>   
+				       
+		 <ul class="mui-table-view listBG">
+				        <li class="mui-table-view-cell">
+				            <a class="mui-navigate-right">
+				                <span class="applist-row"><img src="iconn/human93.svg"/>用餐人数</span>
+				                <div class="mui-numbox" data-numbox-min='1'>
+									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+									<input id="number" class="mui-input-numbox" type="number" value="2"/>
+									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+								</div>
+				            </a>
+				        </li>
+			        </ul>
+			        <ul class="mui-table-view listBG">
+				        <li class="mui-table-view-cell">
+				            <a href="#popover1" id="openTable" class="mui-navigate-right">
+				                <span class="applist-row"><img src="iconn/cutlery6.svg"/>预约餐桌</span>
+				                <input type="text" name="table" id="table" value="请选择餐桌类型"/>
+				            </a>
+				        </li>
+			        </ul>
+			        <ul class="mui-table-view listBG">
+		                <li class="mui-table-view-cell app-specl">
+		                    <a href="#popover" id="openPopover">
+		                    	<span class="applist-row"><i class="fa fa-heart"></i><img src="iconn/paintbrush2.svg"/>特殊需求</span>
+		                    	<input type="text" name="need" id="need" value="" />
+		                    </a>
+		                </li>
+			        </ul>
+			        <ul class="mui-table-view listBG">
+		                <li class="mui-table-view-cell app-specl">
+		                    <label><img src="iconn/talk8.svg"/><font color="#F0AD4E">&nbsp;&nbsp;预订人姓名:</font></label>
+			<input type="text" class="mui-input-clear" >
+		                </li>
+			        </ul>
+			        <ul class="mui-table-view listBG">
+		                <li class="mui-table-view-cell app-specl">
+		                    <label><img src="iconn/call7.svg"/><font color="#F0AD4E">&nbsp;&nbsp;预定电话:</font></label>
+			<input type="text" class="mui-input-clear" >
+		                </li>
+			        </ul>
+			         
+			  </div>
+
+			   <div id="popover" class="mui-popover app-xuqiu">
+				   	<div class="mui-scroll-wrapper ">
+				   	    <div class="mui-scroll">
+				   	    	<header class="mui-bar mui-bar-nav ">
+				   	    	    <h1 class="mui-title xuqiu-title">特殊需求</h1>
+				   	    	</header>
+				   		    <div class="mui-input-group xuqiu-cont ">
+								<div class="mui-input-row mui-checkbox ">
+									<label id="kc">靠窗</label>
+									<input class="need" labid = "#kc" name="checkbox" value="xq1" type="checkbox" >
+								</div>
+								<div class="mui-input-row mui-checkbox">
+									<label id="aj">安静</label>
+									<input class="need" labid = "#aj" name="checkbox" value="xq2" type="checkbox">
+								</div>
+								<div class="mui-input-row mui-checkbox">
+									<label id="kuanchang">宽敞</label>
+									<input class="need" labid = "#kuanchang" name="checkbox" type="checkbox">
+								</div>
+								<div class="mui-input-row mui-checkbox">
+									<label id="kaojinxishoujian">靠近洗手间</label>
+									<input class="need" labid = "#kaojinxishoujian" name="checkbox" type="checkbox">
+								</div>
+								<div class="mui-input-row mui-checkbox">
+									<label id="ertongzuoyi">需要儿童座椅</label>
+									<input class="need" labid = "#ertongzuoyi" name="checkbox" type="checkbox">
+								</div>
+								<div class="mui-input-row mui-checkbox">
+									<label id="xuyaobaojian">需要包间</label>
+									<input class="need" labid = "#xuyaobaojian"  name="checkbox" type="checkbox">
+								</div>
+								<div class="mui-input-row tijiao">
+									<input type="button" value="提交" onclick="getVals()">
+								</div>
+							</div>
+				   		</div>
+				   	</div>
+			   </div>
+			   <div id="popover1" class="mui-popover app-xuqiu">
+				   	<div class="mui-scroll-wrapper">
+				   	    <div class="mui-scroll">
+				   	    	<div class="mui-slider">
+						        <div class="mui-slider-group mui-slider-loop">
+						        	<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一个图文表格) -->
+						            <div class="mui-slider-item mui-slider-item-duplicate">
+						                <ul class="mui-table-view mui-grid-view mui-table-view-radio">
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6 ">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/shaungrenyizi.jpg">
+						                            <div class="mui-media-body">双人餐桌（椅子）</div>
+						                    	</a>
+						                    </li>
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/shuangrenshafa.jpg">
+						                            <div class="mui-media-body">双人餐桌（沙发）</div>
+						                    	</a>
+						                    </li>
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/sirenyizi.jpg">
+						                            <div class="mui-media-body">四人餐桌（椅子）</div>
+						                    	</a>
+						                    </li>
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/sirenshafa.jpg">
+						                            <div class="mui-media-body">四人餐桌（沙发）</div>
+						                    	</a>
+						                    </li>
+						                  
+						                </ul>
+						            </div>
+						            <div class="mui-slider-item">
+						                <ul class="mui-table-view mui-grid-view mui-table-view-radio">
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/shaungrenyizi.jpg">
+						                            <div class="mui-media-body">双人餐桌（椅子）</div>
+						                    	</a>
+						                    </li>
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/shuangrenshafa.jpg">
+						                            <div class="mui-media-body">双人餐桌（沙发）</div>
+						                    	</a>
+						                    </li>
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/sirenyizi.jpg">
+						                            <div class="mui-media-body">四人餐桌（椅子）</div>
+						                    	</a>
+						                    </li>
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/sirenshafa.jpg">
+						                            <div class="mui-media-body">四人餐桌（沙发）</div>
+						                    	</a>
+						                    </li>
+						                   
+						                </ul>
+						            </div>
+						            <div class="mui-slider-item">
+						                <ul class="mui-table-view mui-grid-view mui-table-view-radio">
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6 ">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/huanjing1.jpg">
+						                            <div class="mui-media-body">六人包厢（椅子）</div>
+						                    	</a>
+						                    </li>
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/huanjing2.jpg">
+						                            <div class="mui-media-body">六人包厢（沙发）</div>
+						                    	</a>
+						                    </li>
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/huanjing4.jpg">
+						                            <div class="mui-media-body">八人包厢（椅子）</div>
+						                    	</a>
+						                    </li>
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/huanjing.jpg">
+						                            <div class="mui-media-body">八人包厢（沙发）</div>
+						                    	</a>
+						                    </li>
+						                   
+						                </ul>
+						            </div>
+						            <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一个图文表格) -->
+						            <div class="mui-slider-item mui-slider-item-duplicate">
+						                <ul class="mui-table-view mui-grid-view mui-table-view-radio">
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/huanjing1.jpg">
+						                            <div class="mui-media-body">六人包厢（椅子）</div>
+						                    	</a>
+						                    </li>
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/huanjing2.jpg">
+						                            <div class="mui-media-body">六人包厢（沙发）</div>
+						                    	</a>
+						                    </li>
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/huanjing4.jpg">
+						                            <div class="mui-media-body">八人包厢（椅子）</div>
+						                    	</a>
+						                    </li>
+						                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+						                    	<a href="#" class="mui-navigate-right">
+						                    		<img class="mui-media-object" src="firstimg/huanjing.jpg">
+						                            <div class="mui-media-body">八人包厢（沙发）</div>
+						                    	</a>
+						                    </li>
+						                   
+						                </ul>
+						            </div>
+						        </div>
+						        <div class="mui-slider-indicator" style="position: static;background-color: #fff;">
+						            <span class="mui-action mui-action-previous mui-icon mui-icon-back"></span>
+						            <div class="mui-number">
+						                <span>1</span> / 2
+						            </div>
+						            <span class="mui-action mui-action-next mui-icon mui-icon-forward"></span>
+						        </div>
+						        
+						    </div>
+				   		</div>
+				   	</div>
+			   </div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		</script>
+		<script type="text/javascript">
+			function tabOrder(){
+				var d = {
+					name:$("#table").val(),
+					time:$("#app-date").val(),
+					count:$("#number").val(),
+					note:$("#need").val()
+				}
+				g.tools.post("/data/tableorder",d,
+					function(err,data){
+						if ( err || data.err ){
+							alert(err||data.msg||"预定失败！");
+						}else{
+							alert("预定成功");
+							window.location.href = "./index.html";
+						}
+				})
+			}
+			var table = document.getElementById("table");
+			document.querySelector('.mui-table-view.mui-table-view-radio').addEventListener('selected',function(e){
+				table.value = e.detail.el.innerText;
+			});
+			function getVals(){
+			    var res = getCheckBoxRes('need');
+			    if(res.length < 1){
+			        mui.toast('请选择');
+			        return;
+			    }
+			    mui.toast(res);
+			    $("#need").val(res);
+			}
+			function getCheckBoxRes(className){
+			    var rdsObj   = document.getElementsByClassName(className);
+			    var checkVal = new Array();
+			    var k        = 0;
+			    for(i = 0; i < rdsObj.length; i++){
+			        if(rdsObj[i].checked){
+			            checkVal[k] = $($(rdsObj[i]).attr("labid")).html();
+			            k++;
+			        }
+			    }
+			    return checkVal;
+			}
+			(function(m) {
+				m.init();
+				mui('.mui-scroll-wrapper').scroll();
+				var table = document.getElementById("table");
+				document.querySelector('.mui-table-view.mui-table-view-radio').addEventListener('selected',function(e){
+					console.log(e.detail.el.innerText)
+					table.value = e.detail.el.innerText;
+					console.log(table.val)
+				});
+				var btns = m('#app-date');
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						/*
+						 * 首次显示时实例化组件
+						 * 示例为了简洁，将 options 放在了按钮的 dom 上
+						 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+						 */
+						var picker = new m.DtPicker(options);
+						picker.show(function(rs) {
+							/*
+							 * rs.value 拼合后的 value
+							 * rs.text 拼合后的 text
+							 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+							 * rs.m 月，用法同年
+							 * rs.d 日，用法同年
+							 * rs.h 时，用法同年
+							 * rs.i 分（minutes 的第二个字母），用法同年
+							 */
+//							mui-alert(rs.text);
+							document.getElementById('app-date').value=rs.value;
+//							console.log(121,rs.text)
+							/* 
+							 * 返回 false 可以阻止选择框的关闭
+							 * return false;
+							 */
+							/*
+							 * 释放组件资源，释放后将将不能再操作组件
+							 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+							 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+							 * 所 以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+							 */
+							picker.dispose();
+						});
+					}, false); 
+				});
+			})(mui);
+		</script>
+	</body>
+
+</html>

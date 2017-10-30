@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+			<header class="mui-bar mui-bar-nav">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left reg-backbtn"></a>
+			    <h1 class="mui-title">注册</h1>
+			</header>
+			<div class="mui-content" id="idregist">
+				<div class="logo"><img src="firstimg/sign.png">
+				<h3 style="text-align: center;">萨莉亚</h3>
+			</div>
+			<form id='login-form' class="mui-input-group" style="line-height: 50px;">
+				<div class="mui-input-row">
+					<label>账号</label>
+					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入常用的邮箱或手机号">
+				</div>
+				<div class="mui-input-row">
+					<label>密码</label>
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入6-10位密码">
+				</div>
+				
+			</form>
+			
+			<div class="mui-input-row mui-checkbox mui-left">  
+  <label style="color: whitesmoke;">已同意本APP服务协议</label>  
+  <input name="checkbox1" value="Item 1" type="checkbox" checked="checked">  
+</div> 
+			<div class="mui-content-padded">
+				<button id='login' class="mui-btn mui-btn-block mui-btn-danger" style="font-family: '微软雅黑';">注册</button>
+				
+				
+			</div>
+			<div class="mui-content-padded">
+				<div class="link-area">
+					<a id="reg" href="login.html"><span style="color: whitesmoke;font-family: '微软雅黑';">已有账号？</span></a> 
+					
+				</div>
+			</div>
+			<!--<div class="mui-content-padded oauth-area">
+				<img src="../images/sinaweibo.png" >
+					<img src="../images/qq.png" style="width: 7%;">
+						<img src="../images/weixin.png">
+
+			</div>-->
+			</div>
+			
+		</div>
+		<script>
+			new Vue({
+				el:"#idregist",
+				data:{
+					repassword:"",
+					param:{
+						name:"",
+						phone:"",
+						password:""
+					}
+				},
+				methods:{
+					regist:function(){
+						g.tools.post("/data/user/regist",this.param,function(err,data,msg){
+							if ( err ){
+								alert(msg);
+								return;
+							}
+							g.tools.setToken(data.token);
+							window.location.href = "../index.html";
+						})
+					}
+				}
+			})
+			mui.init();
+		</script>
+	</body>
+
+</html>

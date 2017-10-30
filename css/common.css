@@ -1,0 +1,82 @@
+input{
+	font-family:"font";
+	color:  #ADADAD;
+}
+.mui-icon{
+	color: #876046;
+}
+a{text-decoration: none;color: black;}
+a:hover,a:active{color: wheat;}
+.sign img{
+	float: left;
+	height: 100px;
+}
+.htmleaf-container .item img{
+	height: 200px;
+	width: 200px;
+}
+.slide-text p{
+	line-height: 16px;
+}
+.app-top>a{
+	color: #876046;
+}
+.appoint-topimg img{
+	width: 100%;
+	height: 230px;
+ }   
+h1{ 
+	margin-left: 1%;
+	color:  white;
+	font-size: 25px;
+} 
+.appoint-list{
+	background: #876046;
+	height: 100%;
+}
+.listBG{
+	background-color: #876046;
+	line-height: 30px;
+}
+.applist-row{
+	color: #F0AD4E;font-family: "微软雅黑";
+}
+label{
+	color: #876046;    
+	font-family: "微软雅黑";   
+	font-size: 16px;
+}
+.applist-row img{
+	margin-right: 15px;
+	width: 20px;
+}
+.appoint-list>ul>li>a>div{
+	margin-left: 100px;
+}
+.app-xuqiu{
+	width:80%;
+	height: 50%;
+}
+.app-xuqiu .mui-popover-arrow:after{background: transparent;}
+.xuqiu-title{
+	color: #876046;
+}
+.xuqiu-cont .tijiao{
+	text-align: center;
+}
+.tijiao{
+	color: #876046;
+	text-align: center;
+	z-index: 200;
+	border: 0px;
+}
+.tijiao input[type=submit]{
+	color:white ;
+	font-size: 22px;
+	width: 100%;
+	height: 100%;
+	background: #876046;
+}
+.star{
+	width: 10px!important;
+}

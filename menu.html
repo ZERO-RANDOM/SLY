@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>saizeriya-diancan</title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/wy.css" />
+		<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init({
+				gestureConfig: {
+					tap: true, //默认为true
+					doubletap: true, //默认为false
+					longtap: true, //默认为false
+					swipe: true, //默认为true
+					drag: true, //默认为true
+					hold: false, //默认为false，不监听
+					release: false //默认为false，不监听
+				}
+			});
+
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+					interval: 1000 //自动轮播周期，若为0则不自动播放，默认为0；
+				});
+
+			$(document).ready(function(){
+				mui('body').on('tap','a',function(){
+					document.location.href=this.href;
+				})
+				mui('.mui-scroll-wrapper').scroll({
+					deceleration: 0.005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+				});
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+					interval: 1000 //自动轮播周期，若为0则不自动播放，默认为0；
+				});
+			})
+			//顶部状态栏颜色
+			mui.plusReady(function() {
+				mui.os.iOS && plus.navigator.setFullscreen(true);
+				var slider = mui('.mui-slider').slider();
+				initPageguid();
+				setStatusBarBackgroud();
+				plus.navigator.closeSplashscreen();
+				mui("#into")[0].addEventListener('tap', function() {
+					mui.fire(plus.webview.getLaunchWebview(), 'run');
+					//plus.webview.currentWebview().close();//等登录注册等页面显示之后再关闭                
+				});
+
+				function initPageguid() {
+					//绑定滑屏相关事件 
+					var gallery = mui('.mui-slider')[0];
+					gallery.addEventListener('swiperight', function(e) {
+						//向左划动 
+						var num = mui('.mui-slider').slider().getSlideNumber() - 1;
+						setContainerBackg(num);
+					});
+					gallery.addEventListener('swipeleft', function(e) {
+						//向右划动 
+						var num = mui('.mui-slider').slider().getSlideNumber() + 1;
+						setContainerBackg(num);
+					});
+				}
+
+				function setStatusBarBackgroud() {
+					if(mui.os.ios) {
+						plus.navigator.setStatusBarStyle("UIStatusBarStyleBlackOpaque");
+						//提前设置登陆页背景颜色 
+						plus.navigator.setStatusBarBackground("#876046");
+					}
+				};
+
+				function setContainerBackg(num) {
+					//提前设置背景色 
+					if(num == 0) {
+						mui('.mui-content')[0].style.backgroundColor = '#876046';
+					} else if(num == 2) {
+						mui('.mui-content')[0].style.backgroundColor = '#876046';
+					}
+				};
+			})
+		</script>
+	</head>
+
+	<body>
+		<!-- 主界面菜单同时移动 -->
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable">
+			<!-- 主页面容器 -->
+			<div class="mui-inner-wrap bgs">
+				<!-- 菜单容器 -->
+
+				<!-- 主页面标题 -->
+				<header class="mui-bar mui-bar-nav bgs">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+					
+					<h1 class="mui-title">萨莉亚意式餐厅</h1>
+				</header>
+				
+				<!-- 主页面内容容器 -->
+				<div class="mui-content mui-scroll-wrapper bgs">
+					<div class="mui-scroll">
+						<!-- 主界面具体展示内容 -->
+						<div class="mui-content centers bgs">
+							<a href="environment.html">
+								<img src="img/biaoti.jpg"/>
+							</a>
+						</div>
+						<div id="slider" class="mui-slider">
+							<div class="mui-slider-group mui-slider-loop" style="height: 230px;">
+								<div class="mui-slider-item mui-slider-item-duplicate banners" >
+									<a href="#">
+										<img src="img/tiandian1.png" >
+									</a> 
+									<p class="mui-slider-title">
+										美味甜点
+									</p>
+								</div>
+								<div class="mui-slider-item banners">
+									<a href="#">
+										<img src="img/niupai1.jpg">
+									</a>
+									<p class="mui-slider-title">
+										经典牛扒
+									</p>
+								</div>
+								<div class="mui-slider-item banners">
+									<a href="#">
+										<img src="img/mian.jpg">
+									</a>
+									<p class="mui-slider-title">
+										原自意大利进口
+									</p>
+								</div>
+								<div class="mui-slider-item banners">
+									<a href="#">
+										<img src="img/pinweixican_manner.jpg">
+									</a>
+									<p class="mui-slider-title">
+										特制饮品
+									</p>
+								</div>
+								<div class="mui-slider-item banners">
+									<a href="#">
+										<img src="img/pizza2.jpeg">
+									</a>
+									<p class="mui-slider-title">
+										美味Pizza
+									</p>
+								</div>
+								<div class="mui-slider-item banners">
+									<a href="#">
+										<img src="img/fan01.jpg">
+									</a>
+									<p class="mui-slider-title">
+										多利亚饭&利梭多饭
+									</p> 
+								</div>
+								<div class="mui-slider-item banners">
+									<a href="#">
+										<img src="img/caidan_4.png">
+									</a>
+									<p class="mui-slider-title">
+										特色沙拉
+									</p>
+								</div>
+								<div class="mui-slider-item banners">
+									<a href="#">
+										<img src="img/soup.jpg">
+									</a>
+									<p class="mui-slider-title"> 
+										秘制汤品
+									</p>
+								</div>
+								<div class="mui-slider-item banners">
+									<a href="#">
+										<img src="img/tiandian1.png">
+									</a>
+									<p class="mui-slider-title">
+										美味甜点
+									</p>
+								</div>
+								<div class="mui-slider-item mui-slider-item-duplicate banners">
+									<a href="#">
+										<img src="img/niupai1.jpg">
+									</a>
+									<p class="mui-slider-title">
+										经典牛扒
+									</p>
+								</div>
+							</div>
+							<div class="mui-slider-indicator mui-text-right">
+								<div class="mui-indicator mui-active"></div>
+								<div class="mui-indicator"></div>
+								<div class="mui-indicator"></div>
+								<div class="mui-indicator"></div>
+								<div class="mui-indicator"></div>
+								<div class="mui-indicator"></div>
+								<div class="mui-indicator"></div>
+								<div class="mui-indicator"></div>
+								<div class="mui-indicator"></div>
+							</div>
+						</div>
+						<div class="mui-content bgs centers">
+							<a href="allmenu.html"><button class="mui-btn mui-btn-warning  mui-btn-outlined button2">进入点餐</button></a>
+						</div>
+					</div>
+				</div>
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+	</body>
+
+</html>

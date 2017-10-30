@@ -1,0 +1,985 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/saliya.css"/>
+	<script src="js/mui.zoom.js"></script>
+	<script src="js/mui.previewimage.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    mui.init({ 
+	gestureConfig: {  
+		tap: true, //默认为true
+		doubletap: true, //默认为false
+		longtap: true, //默认为false
+		swipe: true, //默认为true
+		drag: true, //默认为true
+		hold: false, //默认为false，不监听
+		release: false //默认为false，不监听
+	}
+});
+window.onload = function() {
+	mui(".mui-scroll-wrapper").scroll({
+		deceleration: 0.0005
+	});
+	
+}
+    mui.plusReady(function() {
+				mui.os.iOS && plus.navigator.setFullscreen(true);
+				var slider = mui('.mui-slider').slider();
+				initPageguid();
+				setStatusBarBackgroud();
+				plus.navigator.closeSplashscreen();
+				mui("#into")[0].addEventListener('tap', function() {
+					mui.fire(plus.webview.getLaunchWebview(), 'run');
+					//plus.webview.currentWebview().close();//等登录注册等页面显示之后再关闭                
+				});
+
+				function initPageguid() {
+					//绑定滑屏相关事件 
+					var gallery = mui('.mui-slider')[0];
+					gallery.addEventListener('swiperight', function(e) {
+						//向左划动 
+						var num = mui('.mui-slider').slider().getSlideNumber() - 1;
+						setContainerBackg(num);
+					});
+					gallery.addEventListener('swipeleft', function(e) {
+						//向右划动 
+						var num = mui('.mui-slider').slider().getSlideNumber() + 1;
+						setContainerBackg(num);
+					});
+				}
+								function setStatusBarBackgroud() {
+					if(mui.os.ios) {
+						plus.navigator.setStatusBarStyle("UIStatusBarStyleBlackOpaque");
+						//提前设置登陆页背景颜色 
+						plus.navigator.setStatusBarBackground("#876046");
+					}
+				};
+
+				function setContainerBackg(num) {
+					//提前设置背景色 
+					if(num == 0) {
+						mui('.mui-content')[0].style.backgroundColor = '#876046';
+					} else if(num == 2) {
+						mui('.mui-content')[0].style.backgroundColor = '#876046';
+					}  
+				};
+			})
+//  点击事件开始  
+    </script>
+    
+</head>   
+<body>
+	<div class="mui-off-canvas-wrap mui-draggable ">
+	        <!-- 主页面容器 -->  
+	        <div class="mui-inner-wrap">
+	            <!-- 菜单容器 -->    
+	            <aside class="mui-off-canvas-left" id="offCanvasSide">
+	                <div class="mui-scroll-wrapper">
+	                    <div class="mui-scroll caidan">
+	                        <!-- 菜单具体展示内容 -->
+	                      <nav class="mui-bar mui-bar-tab caidanNav">
+  <a class="mui-tab-item mui-active "  id="login" style="color: #FFEECF;">
+		<span class="mui-icon mui-icon-checkmarkempty"></span>
+		<span class="mui-tab-label">登录</span>
+	</a>
+	<script type="text/javascript">
+		document.getElementById('login').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'login.html', 
+    id:'login'
+  });
+});
+	</script>
+	
+	<a class="mui-tab-item"  id="register" style="color: #FFEECF;">
+		<span class="mui-icon mui-icon-personadd"></span>
+		<span class="mui-tab-label">注册</span>
+	</a>
+	<script type="text/javascript">
+		document.getElementById('register').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'register.html', 
+    id:'register'
+  });
+});
+	</script>
+	
+</nav>
+							<div class="mui-content bg1"> 
+									<img src="iconn/user60.svg" id="headImage"/> 
+									
+								<p>Rewind_Luo</p>
+							</div>
+								<!--<ul class="mui-table-view caidan ">
+	<a href="" style="color: white;"><li class="mui-table-view-cell"><img src="iconn/Order.svg"/>个人信息</li></a>
+		<a href="" style="color: white;"><li class="mui-table-view-cell"><img src="iconn/新闻_news.svg"/>&nbsp;品牌故事</li></a>
+	<a href="" style="color: white;"><li class="mui-table-view-cell"><img src="iconn/dingwei.svg"/>查看我附件的萨莉亚餐厅</li></a>
+
+	</ul>    -->
+	<ul class="mui-table-view mui-grid-view mui-grid-9 " style="background-color: #876046; " >
+	<li class="mui-table-view-cell mui-media mui-col-xs-6 ">
+		<a href="#" id="jifen">
+			<img src="iconn/numbers.svg"/>
+			<div class="mui-media-body caidanfont"><font color="#FFEECF">积分</font></div>
+		</a>
+		<script type="text/javascript">
+		document.getElementById('jifen').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'jifen.html', 
+    id:'jifen'
+  });
+});
+	</script>
+	</li>  
+	<li class="mui-table-view-cell mui-media mui-col-xs-6" >
+		<a href="#" id="youhui">
+		<img src="iconn/wallet.svg"/>
+			<div class="mui-media-body"><font color="#FFEECF">优惠</font></div>
+		</a>
+		<script type="text/javascript">
+    	document.getElementById('youhui').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'youhuizhuanqu.html', 
+    id:'youhui'
+  });
+});
+    </script>  
+	</li>
+	<li class="mui-table-view-cell mui-media mui-col-xs-6" >
+		<a href="#" id="hudong">
+			<img src="iconn/talk8.svg"/>
+			<div class="mui-media-body"><font color="#FFEECF">互动</font></div>
+		</a>
+		<script type="text/javascript">
+    	document.getElementById('hudong').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'write.html', 
+    id:'hudong'
+  });
+});
+    </script>  
+	</li>
+	<li class="mui-table-view-cell mui-media mui-col-xs-6" >
+		<a href="#" id="kefu">
+			<img src="iconn/call39.svg"/>
+			<div class="mui-media-body"><font color="#FFEECF">客服</font></div>
+		</a>
+		<script type="text/javascript">
+			document.getElementById("kefu").addEventListener('tap', function() { 
+                var btnArray = ['拨打', '取消']; 
+                var Phone = "020-38473712"; 
+                mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) { 
+                    if (e.index == 0) { 
+                        plus.device.dial(Phone, false); 
+                    }  
+                }); 
+            }); 
+		</script>
+		
+	</li>
+	</ul>
+<ul class="mui-table-view caidanlist" >
+	<li class="mui-table-view-cell mui-hidden">cared
+		<div id="M_Toggle" class="mui-switch mui-active">
+			<div class="mui-switch-handle"></div>
+		</div>
+	</li>
+	<li class="mui-table-view-cell mui-media">
+		<a href="#">
+			<img class="mui-media-object mui-pull-left" src="img/caidan_1.png">
+			<div class="mui-media-body">
+				<span class="caidanlist_wenzi">原材料的知识</span>
+				<p class='mui-ellipsis'>原料来源是人类对自然条件充分利用后的产物</p>
+			</div>
+		</a>
+	</li>
+	<li class="mui-table-view-cell mui-media">
+		<a href="#">
+			<img class="mui-media-object mui-pull-left" src="img/caidan_2.png">
+			<div class="mui-media-body">
+				<span class="caidanlist_wenzi">意面的文化</span>
+				<p class='mui-ellipsis'>意大利人用这一道简单却好吃的意大利面告诉全世界</p>
+			</div>
+		</a>
+	</li>
+	<li class="mui-table-view-cell mui-media">
+		<a href="#">
+			<img class="mui-media-object mui-pull-left" src="img/caidan_3.png">
+			<div class="mui-media-body">
+				<span class="caidanlist_wenzi">Coffee</span>
+				<p class='mui-ellipsis'>咖啡是用经过烘焙的咖啡豆制作出来的饮料，与可可、茶同为流行于世界的主要饮品。</p>
+			</div>
+		</a>
+	</li>
+	<li class="mui-table-view-cell mui-media">
+		<a href="#">
+			<img class="mui-media-object mui-pull-left" src="img/caidan_4.png">
+			<div class="mui-media-body">
+				<span class="caidanlist_wenzi">沙拉怎么做好吃</span>
+				<p class='mui-ellipsis'>用各种凉透了的熟料</p>
+			</div>
+		</a>
+	</li>
+</ul>
+								
+	                </div>    
+	                </div>
+	            </aside>
+	            <!-- 主页面标题 -->    
+	           
+	            <nav class="mui-bar mui-bar-tab">
+	    		    <a class="mui-tab-item mui-active" href="#first">
+				<img src="iconn/first.svg" class="mui-icon" /> 
+				<span class="mui-tab-label" style="color: #FF9900;">首页</span>
+			</a>   
+			<a class="mui-tab-item" id="menu">
+				<img class="mui-icon" src="iconn/active.svg" />
+			 	<span class="mui-tab-label">点餐</span>
+			</a>      
+			<script type="text/javascript">
+    	document.getElementById('menu').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'menu.html', 
+    id:'menu'
+  });
+});
+    </script>  
+			<a class="mui-tab-item" href="#contact">     
+				<img src="iconn/tab_friend_filled.png" class="mui-icon" />
+				<span class="mui-tab-label">点评</span>
+			</a>
+			<a class="mui-tab-item" href="#me" >
+				<img src="iconn/me.svg" class="mui-icon" />
+				<span class="mui-tab-label">我的</span>
+			</a> 
+	    		</nav> 
+	            <!-- 主页面内容容器 -->
+	            <div class="mui-content mui-scroll-wrapper" >
+	                <div class="mui-scroll" >
+	                    <!-- 主界面具体展示内容 -->
+	 <div class="mui-content">
+	 	
+	 	
+	 	
+	 	
+			<div id="first" class="mui-control-content mui-active">
+				 <header class="mui-bar mui-bar-transparent " >
+	            	<a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" href="#offCanvasSide" style="color: white;"></a>
+			  <h1 class="mui-title">
+			<input type="search" class="mui-input-speech mui-input-clear" placeholder="萨莉亚意式餐厅" style="background-color: white; width: 90%;">
+			  </h1>
+			  <a class="mui-icon mui-action-menu mui-icon-search mui-pull-right" id="seach" style="color: white;"></a>
+			  <script type="text/javascript">
+    	document.getElementById('seach').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'search.html', 
+    id:'seach'
+  });
+});
+    </script>
+		</header>
+				<div class="slider-bg"></div>
+				<div id="slider" class="mui-slider">
+	<div class="mui-slider-group mui-slider-loop">
+		<div class="mui-slider-item mui-slider-item-duplicate">
+			<a href="#" id="AppZFXJZ">
+				<img src="img/meishi1.jpg">
+			</a>
+			<script type="text/javascript">
+    	document.getElementById('AppZFXJZ').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'menu.html', 
+    id:'AppZFXJZ'
+  });
+});
+    </script> 
+			<p class="mui-slider-title">
+				App支付享九折
+			</p> 
+		</div>
+		<div class="mui-slider-item">
+			<a href="#" id="MWJZSLY">
+				<img src="img/canting.jpg">
+			</a>
+			<script type="text/javascript">
+    	document.getElementById('MWJZSLY').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'menu.html', 
+    id:'MWJZSLY'
+  });
+});
+    </script> 
+			<p class="mui-slider-title">
+				美味尽在萨莉亚
+			</p>
+		</div>
+		<div class="mui-slider-item">
+			<a href="#"id="zzjp">
+				<img src="img/dongji.jpg">
+			</a>
+			<script type="text/javascript">
+    	document.getElementById('zzjp').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'youhuizhuanqu.html', 
+    id:'zzjp'
+  });
+});
+    </script> 
+			<p class="mui-slider-title">
+				【推荐】芝士鸡排
+			</p>
+		</div>
+		<div class="mui-slider-item">
+			<a href="#" id="ymsl">
+				<img src="img/cai3.jpg">
+			</a><script type="text/javascript">
+    	document.getElementById('ymsl').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'youhuizhuanqu.html', 
+    id:'ymsl'
+  });
+});
+    </script> 
+			<p class="mui-slider-title">
+				【推荐】玉米沙拉
+			</p>
+		</div>
+		<div class="mui-slider-item">
+			<a href="#" id="AppZFXJZ2">
+				<img src="img/meishi1.jpg">
+			</a><script type="text/javascript">
+    	document.getElementById('AppZFXJZ2').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'menu.html', 
+    id:'AppZFXJZ2'
+  });
+});
+    </script> 
+			
+			<p class="mui-slider-title">
+				App支付享九折
+			</p>
+		</div>
+		<div class="mui-slider-item mui-slider-item-duplicate">
+			<a href="#">
+				<img src="img/canting.jpg">
+			</a> 
+			<p class="mui-slider-title">
+				美味尽在萨莉亚
+			</p>
+		</div>
+	</div>
+	<div>
+	<script type="text/javascript">
+		var gallery = mui('.mui-slider');
+				gallery.slider({
+					interval: 1500 //自动轮播周期，若为0则不自动播放，默认为0；
+				}); 
+	</script>
+	<div class="mui-slider-indicator mui-text-right">
+		<div class="mui-indicator mui-active"></div>
+		<div class="mui-indicator"></div>
+		<div class="mui-indicator"></div>
+		<div class="mui-indicator"></div>
+	</div> 
+</div></div>
+<!--轮播结束--> 
+
+				<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: white;">
+	<li class="mui-table-view-cell mui-media mui-col-xs-3" >
+		<a href="allmenu.html" id="diancan">
+					<img src="iconn/can1.svg" class="order" />
+						<span class="mui-badge mui-badge-primary">新上线</span>
+								<div class="mui-media-body" >自助点餐</div>
+							</a>
+							<script type="text/javascript">
+    	document.getElementById('diancan').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'menu.html', 
+    id:'diancan'
+  });
+});
+    </script>  
+	</li>     
+	<li class="mui-table-view-cell mui-media mui-col-xs-3"> 
+		<a href="appointtable.html" id="yuding"> 
+								<img src="iconn/yuding.svg" class="order" />
+				            				<div class="mui-media-body"  >预订餐位</div>
+				  	   		 </a>
+				  	   		 <script type="text/javascript">
+    	document.getElementById('yuding').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'appointtable.html', 
+    id:'yuding'
+  });
+});
+    </script>  
+	</li>         
+	<li class="mui-table-view-cell mui-media mui-col-xs-3">
+		<a href="allmenu.html" id="youhui1">
+			<span class="mui-badge mui-badge-danger">满减</span>
+						     		<img src="iconn/youhui.svg "class="order"/>
+								<div class="mui-media-body">优惠专区</div>
+							</a>
+							 <script type="text/javascript">
+    	document.getElementById('youhui1').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'youhuizhuanqu.html', 
+    id:'youhui1'
+  });
+});
+    </script>  
+	</li>
+	<li class="mui-table-view-cell mui-media mui-col-xs-3"> 
+		<a href="allmenu.html" id="pinwei">
+							<img src="iconn/news.svg" class="order"/>
+					 			<div class="mui-media-body">品味西餐</div> 
+				 		</a> 
+				 		<script type="text/javascript">
+    	document.getElementById('pinwei').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'pinweixican.html', 
+    id:'pinwei'
+  });
+});
+    </script>  
+	</li>        
+	<li class="mui-table-view-cell mui-media mui-col-xs-3">
+		<a href="allmenu.html" id="joining">
+					<img src="iconn/me.svg" class="order"/>
+								<div class="mui-media-body">加入我们</div>
+							</a>
+							<script type="text/javascript">
+    	document.getElementById('joining').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'zhaopin.html', 
+    id:'joining'
+  });
+});
+    </script>  
+	</li> 
+	<li class="mui-table-view-cell mui-media mui-col-xs-3">
+		<a href="allmenu.html" id="pinpaigushi"> 
+			<span class="mui-badge mui-badge-warning">有你看</span>
+								<img src="iconn/Order.svg " class="order" />
+				            			    	<div class="mui-media-body">品牌故事</div>
+				  	   		 </a>
+				  	   		 <script type="text/javascript">
+    	document.getElementById('pinpaigushi').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'ppgs.html', 
+    id:'pinpaigushi'
+  });
+});
+    </script>  
+	</li>
+	<li class="mui-table-view-cell mui-media mui-col-xs-3">
+		<a href="allmenu.html" id="environment">
+						     		<img src="iconn/huanjing.svg "class="order"/>
+								<div class="mui-media-body">就餐环境</div>
+							</a>
+							<script type="text/javascript">
+    	document.getElementById('environment').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'environment.html', 
+    id:'environment'
+  });
+});
+    </script>  
+	</li>
+	<li class="mui-table-view-cell mui-media mui-col-xs-3"> 
+		<a href="allmenu.html"id="diancanTop">
+							<img src="iconn/yuyue.svg" class="order" />
+					 			<div class="mui-media-body">点餐排行</div>
+				 		</a>
+				 		<script type="text/javascript">
+    	document.getElementById('diancanTop').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'dancanTop.html', 
+    id:'diancanTop'
+  });
+});
+    </script>  
+	</li>
+	   </ul>
+<!--9宫格结束-->         
+<div class="mui-content-padded" style="text-align: center;">
+  <h4>-热卖单品-</h4>
+</div>
+<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: white;"> 
+	<li class="mui-table-view-cell mui-media mui-col-xs-6 jiugongge">
+		<a href="#"> 
+			<span style="font-size: 20px;" >
+				<strong>饭前大开胃</strong>
+			</span>
+			<p style="font-size: 14px; color: #4CD964; border: 0.5px solid #000000; width: 45%;margin-left: 25%;line-height: 15px; margin-top: 2px;">口感鲜甜</p><br />
+			<img src="img/left_1.png" style="border-radius:20px ;"/>     
+			<div class="mui-media-body" style=" font-size: 12px;">水果沙拉/<span style="color: #d70000;font-size: 16px;">仅售8元</span></div>
+		</a> 
+	</li>    
+	<li class="mui-table-view-cell mui-media mui-col-xs-6 jiugongge">
+		<a href="#">  
+			<span style="font-size: 20px;">
+				<strong>桌桌必点！</strong>
+			</span>
+			<p style="font-size: 14px; color: chocolate; border: 0.5px solid #000000; width: 45%;margin-left: 25%;line-height: 15px; margin-top: 2px;">人气美味</p><br />
+			<img src="img/left-2.png"style="border-radius:20px ;"/>     
+			<div class="mui-media-body" style=" font-size: 12px;">黑椒牛柳意面/<span style="color: #d70000;font-size: 16px;">仅售14元</span></div>
+		</a>
+	</li> 
+	<li class="mui-table-view-cell mui-media mui-col-xs-6 jiugongge">
+		<a href="#">
+			<p style="font-size: 16px; color: coral;"><strong>凤尾虾鱿鱼圈</strong></p><br />
+			<img src="img/left-3.png"style="border-radius:20px ;"/>     
+			<div class="mui-media-body" style="  font-size: 12px;">地中海风味烤饭/<span style="color: #d70000;font-size: 16px;">仅售15元</span></div>
+		</a>
+	</li> 
+	<li class="mui-table-view-cell mui-media mui-col-xs-6 jiugongge">
+		<a href="#">  
+			<p style="font-size: 16px;color: lightskyblue;"><strong>大海的原味</strong></p><br />
+			<img src="img/left-4.png"style="border-radius:20px ;"/>     
+			<div class="mui-media-body" style=" font-size: 12px;">花蛤裙菜海鲜汤/<span style="color: #d70000;font-size: 16px;">仅售9元</span></div>
+		</a>
+	</li> 
+</ul>
+<div class="mui-content-padded" style="text-align: center;" >
+  <h4>-新品上市-</h4>
+</div>
+<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: ghostwhite;">
+	<li class="mui-table-view-cell mui-media mui-col-xs-6">
+		<a href="#">  
+			<p style="font-size: 16px;color: goldenrod;">甜绵飘香，热恋的感觉</p><br />
+			<img src="img/left-5.png"/>     
+			<div class="mui-media-body" style="font-size: 12px;">西番莲慕斯蛋糕/<span style="color: #d70000;font-size: 16px;">仅售9元</span></div>
+		</a>
+	</li> 
+	<li class="mui-table-view-cell mui-media mui-col-xs-6">
+		<a href="#">  
+			<p style="font-size: 16px;color: saddlebrown;">菌菇酱汁，口感浓厚</p><br />
+			<img src="img/left-6.png"/>     
+			<div class="mui-media-body" style="font-size: 12px;">菌菇牛排/<span style="color: #d70000;font-size: 16px;">仅售35元</span></div>
+		</a>
+	</li> 
+</ul>
+<div class="mui-content-padded" style="text-align: center;font-family: '微软雅黑';">
+  <h4>-推荐搭配-</h4> 
+</div> 
+<div class="mui-content" style="background-image: url(img/zhizi.png) ;  border-radius:10px ;">
+			<div class="mui-content-padded">
+				<p style="font-family: '微软雅黑'; font-size: 20px; color:  #985F0D;padding-top: 10px;">萨莉亚推荐【四人套餐】</p>
+				<p>
+					<img src="img/dapei1.jpg" data-preview-src="" data-preview-group="1" />
+				</p>
+					<span class="mui-badge">点击图片查看</span>
+				<p>沙拉：熏香鸭胸沙拉 &nbsp; &nbsp; &nbsp;汤：花蛤裙菜海鲜汤<br />前菜：托斯卡纳风味煮牛肚&nbsp; &nbsp;披萨：萨莉亚特选牛肉披萨<br />饭类：海鲜利梭多饭&nbsp; &nbsp;意面：卡普里风味番茄海鲜意面<br />主菜：黑椒牛排
+				<h5>美食专家这样说：环境很温馨，开放式，感觉很舒服。黑椒鸡排，一大块鸡排，鲜嫩无比，黑椒汁还不错。对我来说，略咸。喜欢旁边的土豆饼和菠菜</h5>
+				</p>
+			
+				<hr>
+				<p style="font-family: '微软雅黑'; font-size: 20px; color: #985F0D;padding-top: 10px;">萨莉亚推荐【三人套餐】</p>
+				<p>
+					<img src="img/dapei2.jpg" data-preview-src="" data-preview-group="1" />
+				</p>
+					<span class="mui-badge">点击图片查看</span>
+				<p>沙拉：熏香鸭胸沙拉 &nbsp; &nbsp; &nbsp;汤：花蛤裙菜海鲜汤<br />前菜：托斯卡纳风味煮牛肚&nbsp; &nbsp;披萨：萨莉亚特选牛肉披萨<br />饭类：海鲜利梭多饭&nbsp; &nbsp;意面：卡普里风味番茄海鲜意面<br />主菜：黑椒牛排
+				<h5>美食专家这样说：价格便宜的西式简餐，披萨，意面，焗饭，汉堡，沙拉，浓汤选择种类很多，饮料是8元无限量，都是不错的选择。</h5>
+				</p>
+				<hr>
+				<p style="font-family: '微软雅黑'; font-size: 20px; color: #985F0D;padding-top: 10px;">萨莉亚推荐【双人人套餐】</p>
+				<p>
+					<img src="img/dapei3.jpg" data-preview-src="" data-preview-group="1" />
+				</p>
+					<span class="mui-badge">点击图片查看</span>
+				<p>沙拉：熏香鸭胸沙拉 &nbsp; &nbsp; &nbsp;汤：花蛤裙菜海鲜汤<br />前菜：托斯卡纳风味煮牛肚&nbsp; &nbsp;披萨：萨莉亚特选牛肉披萨<br />饭类：海鲜利梭多饭&nbsp; &nbsp;意面：卡普里风味番茄海鲜意面<br />主菜：黑椒牛排
+				<h5>美食专家这样说：价格便宜的西式简餐，披萨，意面，焗饭，汉堡，沙拉，浓汤选择种类很多，饮料是8元无限量，都是不错的选择。</h5>
+			</p></div>  
+			</div>
+			<script>
+		mui.previewImage();
+	</script>
+			<div class="mui-content-padded" style="text-align: center;font-family: '微软雅黑';">
+  <h5>联系电话：  020-38473712<br />
+
+   ※ 萨莉亚直营经营，不接受加盟※</h5> 
+</div>
+</div>
+<!--点餐部分开始-->
+
+<!--点餐部分结束-->
+			 <div id="first" class="mui-control-content mui-active">
+			 </div>
+			<!--点评部分开始-->
+			<div id="contact" class="mui-control-content">
+				<header class="mui-bar mui-bar-transparent">
+					<a href="write.html" id="write" style="color: white;"><span class="mui-icon mui-icon-compose mui-pull-left edit"></span></a>
+					<script type="text/javascript">
+    	document.getElementById('write').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'write.html', 
+    id:'write'
+  });
+});
+    </script>  
+				</header>
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="himg/ping4.jpg">
+								<p class="mui-slider-title" style="font-family: '微软雅黑';">【滨江道店】属于非常大众化，价格亲民的西餐</p>
+							</a>
+						</div>
+						<!-- 第一张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="himg/ping1.jpg">
+								<p class="mui-slider-title" style="font-family: '微软雅黑';">【滨江道店】属于非常大众化，价格亲民的西餐</p>
+							</a>
+						</div>
+						<!-- 第二张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="himg/ping2.jpg">
+								<p class="mui-slider-title" style="font-family: '微软雅黑';">【国际商场店】味道不错~</p>
+							</a>
+						</div>
+						<!-- 第三张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="himg/ping1.jpg">
+								<p class="mui-slider-title" style="font-family: '微软雅黑';">【熙悦汇店】菜品有更新，价位合适</p>
+							</a>
+						</div>
+						<!-- 第四张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="himg/ping4.jpg">
+								<p class="mui-slider-title" style="font-family: '微软雅黑';">【奥城店】喜欢，环境很不错</p>
+							</a>
+						</div>
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="himg/ping1.jpg">
+								<p class="mui-slider-title" style="font-family: '微软雅黑';">【奥城店】喜欢，环境很不错</p>
+							</a>
+						</div>
+					</div>
+					<script type="text/javascript">
+		var gallery = mui('.mui-slider');
+				gallery.slider({
+					interval: 1500 //自动轮播周期，若为0则不自动播放，默认为0；
+				}); 
+	</script>
+					<div class="mui-slider-indicator slideicon" style="text-align: right;">
+					
+						<div class="mui-indicator mui-active"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+					</div>
+					
+				</div>
+				<div class="mui-content" id="">
+					<div class="mui-card">
+						<div class="mui-card-header mui-card-media">
+							<img src="himg/tou4.jpg" />
+							<div class="mui-media-body" style="font-family: '微软雅黑';">
+								张张
+								<p  style="font-family: '微软雅黑';">发表于 2017-06-15 15:30</p>
+							</div>
+						</div>
+						<div class="mui-card-content">
+							<img src="himg/cai1.jpg" width="100%" />
+							<p style="color: #333;font-family: '微软雅黑';">&nbsp;&nbsp;&nbsp;&nbsp;死忠粉，很爱吃这家的金枪鱼沙拉，又好吃又吃不胖的，嘿嘿~</p>
+						</div>
+						<div class="mui-card-footer">
+							<div id="info"></div>
+							<a class="mui-card-link pj-font" id="recommentBtn"><span class="mui-icon mui-icon-chatboxes"></span>回复</a>
+							<a class="mui-card-link"><span class="mui-icon mui-icon-paperplane"></span>分享</a>
+
+						</div>
+					</div>
+					<div class="mui-card">
+						<div class="mui-card-header mui-card-media">
+							<img src="himg/tou1.jpg" />
+							<div class="mui-media-body" style="font-family: '微软雅黑';">
+								李李
+								<p  style="font-family: '微软雅黑';">发表于 2017-06-15 15:30</p>
+							</div>
+						</div>
+						<div class="mui-card-content">
+							<img src="himg/cai2.jpg" width="100%" />
+							<p style="color: #333;font-family: '微软雅黑';">&nbsp;&nbsp;&nbsp;&nbsp;过段时间就会去一次，价格亲民，都是小份量的，适合二人享用，可以多点几样，满足人少又想都吃的人。，这次的意面是个惊喜，不仅量大而且味道浓郁。</p>
+						</div>
+						<div class="mui-card-footer">
+							<div id="info"></div>
+							<a class="mui-card-link pj-font" id="recommentBtn"><span class="mui-icon mui-icon-chatboxes"></span>回复</a>
+							<a class="mui-card-link"><span class="mui-icon mui-icon-paperplane"></span>分享</a>
+
+						</div>
+					</div>
+					<div class="mui-card">
+						<div class="mui-card-header mui-card-media">
+							<img src="himg/tou2.jpg" />
+							<div class="mui-media-body" style="font-family: '微软雅黑';">
+								周周
+								<p style="font-family: '微软雅黑';">发表于 2017-06-15 15:30</p>
+							</div>
+						</div>
+						<div class="mui-card-content">
+							<img src="himg/cai4.jpg" width="100%" />
+							<p style="color: #333;font-family: '微软雅黑';">&nbsp;&nbsp;&nbsp;&nbsp;海鲜披萨，26元，说是9寸，其实就是家里碟子大小，切4块正好，芝士不多，很难拉出丝，味道一般。 最爱的原味烤肠，一份5根，15元，配上几块炸土豆，蘸着沙司吃，相当美味，相当独特的味道，每次必点~！ 培根番茄意面，16元，浓浓的酱汁配上意面，酸酸甜甜的问道，很适合小朋友的口味。
+							</p>
+						</div>
+						<div class="mui-card-footer">
+							<div id="info"></div>
+							<a class="mui-card-link pj-font" id="recommentBtn"><span class="mui-icon mui-icon-chatboxes"></span>回复</a>
+							<a class="mui-card-link"><span class="mui-icon mui-icon-paperplane"></span>分享</a>
+
+						</div>
+					</div>
+					<div class="mui-card">
+						<div class="mui-card-header mui-card-media">
+							<img src="himg/tou3.jpg" />
+							<div class="mui-media-body"  style="font-family: '微软雅黑';">
+								金金
+								<p  style="font-family: '微软雅黑';">发表于 2016-06-30 15:30</p>
+							</div>
+						</div>
+						<div class="mui-card-content">
+							<img src="himg/cai5.jpg" width="100%" />
+							<p style="color: #333;font-family: '微软雅黑';">&nbsp;&nbsp;&nbsp;&nbsp;晚上放学去的熙悦汇，就来了萨莉亚，很便宜，五个人才花了136，味道非常好，尤其是芝士披萨，芝士很多，味道很浓，培根披萨也很特别好。因为很久没吃意面了，就点了个奶酪培根面尝尝，结果有点后悔，和想象中味道不太一样，感觉味道怪怪的。不过总体感觉还不错，环境和服务都挺好的。 </p>
+						</div>
+					<div class="mui-card-footer">
+							<div id="info"></div>
+							<a class="mui-card-link pj-font" id="recommentBtn"><span class="mui-icon mui-icon-chatboxes"></span>回复</a>
+							
+							<a class="mui-card-link"><span class="mui-icon mui-icon-paperplane"></span>分享</a>
+
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		
+			<div id="me" class="mui-control-content">
+    <div class="mui-content">
+    		<div class="mui-content meup"> 
+									<img src="iconn/user60.svg" id="headImage"width="50px"/> 
+									
+						 		<p>Rewind_Luo</p>
+						</div> 
+    <ul class="mui-table-view">
+        <li class="mui-table-view-cell mui-media">
+            <a href="javascript:;" class="mui-navigate-right">
+                <img id="photo" class="mui-media-object mui-pull-left" src="iconn/hello.svg">
+                <div class="mui-media-body">
+                      您好.欢迎光临萨莉亚
+                    <p class="mui-ellipsis" style="color: #000000;">个人主页&nbsp;></p>
+                </div>
+            </a>
+        </li>
+       
+    </ul>
+    <ul class="mui-table-view mui-grid-view mui-grid-9 megongge">
+	<li class="mui-table-view-cell mui-media mui-col-xs-3">
+		<a href="#" id="myjifen">
+			<img src="iconn/numbers1.svg.lnk.svg"/>
+			<div class="mui-media-body">我的积分</div>
+		</a>
+		<script type="text/javascript">
+    	document.getElementById('myjifen').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'jifen.html', 
+    id:'myjifen'
+  });
+});
+    </script> 
+	</li>
+	<li class="mui-table-view-cell mui-media mui-col-xs-3">
+		<a href="#" id="mydianping">
+			<img src="iconn/talk9.svg"/>
+			<div class="mui-media-body">我的菜单</div>
+		</a>
+		<script type="text/javascript">
+    	document.getElementById('mydianping').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'allmenu.html', 
+    id:'mydianping'
+  });
+});
+    </script>  
+	</li>
+	<li class="mui-table-view-cell mui-media mui-col-xs-3">
+		<a href="#" id="youhui2">
+			<img src="iconn/wallet19.svg"/>
+			<div class="mui-media-body">我的优惠</div>
+		</a>
+		<script type="text/javascript">
+    	document.getElementById('youhui2').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'youhuizhuanqu.html', 
+    id:'youhui2'
+  });
+});
+    </script> 
+	</li>
+	<li class="mui-table-view-cell mui-media mui-col-xs-3">
+		<a href="#">
+			<img src="iconn/gears3.svg"/>
+			
+			<div class="mui-media-body">设置</div>
+		</a>
+	</li>
+	</ul>
+	 <ul class="mui-table-view" >
+       	<li class="mui-table-view-cell" id="foot">
+            
+            <a class="mui-navigate-right" id="denglu">
+            	<img src="iconn/businessmen18.svg"/>
+                  <span>登录/注册</span> 
+               </a>
+               <script type="text/javascript">
+    	document.getElementById('denglu').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'login.html', 
+    id:'denglu'
+  });
+});
+    </script> 
+           </li>
+       </ul>
+   <ul class="mui-table-view" id="my">
+           <li class="mui-table-view-cell">
+            <a class="mui-navigate-right"id="wochiguode">
+            	<img src="iconn/dining.svg"/>
+                  <span>我吃过的</span> 
+               </a>
+               <script type="text/javascript">
+    	document.getElementById('wochiguode').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'allmenu.html', 
+    id:'wochiguode'
+  });
+});
+    </script> 
+           </li>
+           <li class="mui-table-view-cell">
+               <a class="mui-navigate-right"id="woquguode">
+               	<img src="iconn/place1.svg"/>
+                    我去过的
+               </a>
+               <script type="text/javascript">
+    	document.getElementById('woquguode').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'environment.html', 
+    id:'woquguode'
+  });
+});
+    </script> 
+           </li>
+           <li class="mui-table-view-cell">
+               <a class="mui-navigate-right"id="wozhidaode">
+               		<img src="iconn/books26.svg"/>
+                    我知道的
+               </a>
+               <script type="text/javascript">
+    	document.getElementById('wozhidaode').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'pinweixican.html', 
+    id:'wozhidaode'
+  });
+});
+    </script> 
+           </li>
+           <li class="mui-table-view-cell">
+               <a class="mui-navigate-right" id="liaojiegengduo">
+               	<img src="iconn/more15.svg"/>
+                    了解更多
+               </a>
+               <script type="text/javascript">
+    	document.getElementById('liaojiegengduo').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'ppgs.html', 
+    id:'liaojiegengduo'
+  });
+});
+    </script> 
+           </li>
+       </ul>
+      
+    </div>
+			</div>
+		
+			
+		</div>
+		</div>
+		
+		</div>
+		<script type="text/javascript">
+		var info=document.getElementById("info");
+		document.getElementById("recommentBtn").addEventListener('tap', function(e) {
+			e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+			var btnArray = ['取消', '确定'];
+			mui.prompt('请输入你对她的评语：', '', '', btnArray, function(e) {
+				if (e.index == 1) {
+					info.innerText = '谢谢你的评语：' + e.value;
+				} else {
+					info.innerText = '你点了取消按钮';
+				}
+			})
+		});
+	</script>
+
+	</body>
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

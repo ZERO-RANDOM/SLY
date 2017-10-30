@@ -1,0 +1,51 @@
+
+    	#tu{
+    		width: 100%;
+    		height: 130px;
+    		position: relative;
+    		
+    		
+    	}
+    	#foot{
+    		margin-top: 5px;
+    	}
+    	
+    	#my{
+    		margin-top: 5px;
+    	}
+    	.megongge{
+    		background-color: ghostwhite;
+    	}
+    	.meup{
+
+    		padding-top: 40%;
+    		background-size: cover;
+    	}
+    	#button{
+    		z-index: 5;
+    		width: 120px;
+    		height: 30px;
+    		border-radius: 20px;
+    		position: fixed;
+    		margin-top: 60px;
+    		margin-left: 100px;
+    		background: rgba(0,0,0,0.3);
+    		
+    	}
+.mui-icon-back:before, .mui-icon-left-nav:before {
+    
+    color: white;
+}
+.mui-bar .mui-title {
+    right: 40px;
+    left: 40px;
+    display: inline-block;
+    overflow: hidden;
+    width: auto;
+    margin: 0;
+    text-overflow: ellipsis;
+    color: white;
+}
+p,a{
+	font-family: "微软雅黑";
+}
